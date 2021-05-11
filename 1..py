@@ -20,3 +20,17 @@ with urlopen('https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qv
     for i in movie_poplaration:
         movie_poplaration1.append(i.text)
     print( movie_poplaration1)
+
+    figure = []
+    for i in range(len(movie_poplaration1)):
+        if i % 2 == 1:
+            k = movie_poplaration1[i]
+            p = k[0] + k[1] + k[3] + k[4] + k[5] + k[7] + k[8] + k[9]
+            p = int(p)
+            figure.append(p)
+
+    x = [0, 1, 2, 3, 4, 5, 6, 7]
+    plt.rcParams['font.family'] = 'Malgun Gothic'
+    plt.bar(x, figure)
+    plt.xticks(x, movie_name1)
+    plt.show()
